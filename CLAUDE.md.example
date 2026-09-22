@@ -1,0 +1,144 @@
+# CLAUDE.md - Project Context Template
+
+> This is a template. Copy it to `CLAUDE.md` in your project root and fill in the sections that apply to you.
+> Claude Code reads `CLAUDE.md` at the start of every session to understand your project context.
+
+---
+
+## Project Overview
+
+<!-- Brief description of what this project does -->
+
+**Name:** Your Project Name
+**Type:** Web app / API / CLI tool / Library / etc.
+**Stack:** Next.js 15, React 19, TypeScript, PostgreSQL (adjust to your stack)
+
+---
+
+## Architecture
+
+<!-- High-level architecture decisions Claude should respect -->
+
+- Framework: [Next.js App Router / Vue / Express / FastAPI / etc.]
+- Language: [TypeScript strict mode / Python 3.12 / etc.]
+- Database: [PostgreSQL via Prisma / MongoDB / etc.]
+- Testing: [Jest + React Testing Library / pytest / etc.]
+- Deployment: [Vercel / AWS / Docker / etc.]
+
+---
+
+## Code Standards
+
+<!-- Non-negotiable coding standards for this project -->
+
+### Style
+- [ ] Prettier for formatting
+- [ ] ESLint config from `eslint.config.js`
+- [ ] TypeScript strict mode enabled
+- [ ] Prefer `const` over `let`; never use `var`
+
+### Patterns
+- [ ] REST API responses follow: `{ data, error, meta }` shape
+- [ ] All async functions must handle errors explicitly
+- [ ] No `any` types without an accompanying `// eslint-disable` with reason
+
+### Naming
+- [ ] Components: PascalCase (`UserProfile.tsx`)
+- [ ] Files: kebab-case (`user-profile.tsx`)
+- [ ] Constants: SCREAMING_SNAKE_CASE
+- [ ] Booleans start with `is`, `has`, `can`
+
+---
+
+## Commands
+
+<!-- Standard commands for this project. Claude will use these when asked to run tests, build, etc. -->
+
+```bash
+# Development
+npm run dev          # Start dev server
+npm run lint         # Run linter
+npm run typecheck    # TypeScript check
+
+# Testing
+npm test             # Run all tests
+npm run test:watch   # Watch mode
+npm run test:coverage # Coverage report
+
+# Build & Deploy
+npm run build        # Production build
+npm run start        # Start production server
+```
+
+---
+
+## Directory Structure
+
+```
+src/
+├── app/              # Next.js App Router pages
+├── components/       # Reusable UI components
+├── lib/              # Utilities and helpers
+├── server/           # Server-side code (API routes, actions)
+└── types/            # TypeScript type definitions
+```
+
+---
+
+## Subagents Usage
+
+<!-- Which subagents to invoke for what -->
+
+- `@architect-planner`: New features, refactoring decisions
+- `@backend-dev`: API endpoints, server logic
+- `@frontend-dev`: React components, UI implementation
+- `@db-schema-expert`: Prisma schema changes, migrations
+- `@security-auditor`: Auth flows, user data handling
+- `@test-runner`: Test authoring, coverage improvements
+- `@code-reviewer`: Pre-PR review
+- `@devops-engineer`: Deploy config, CI/CD
+
+---
+
+## Constraints
+
+<!-- Things Claude should NEVER do in this project -->
+
+- [ ] Never commit `.env` files
+- [ ] Never use `dangerouslySetInnerHTML` without review
+- [ ] Never bypass authentication middleware
+- [ ] Never run migrations directly on production
+- [ ] Never disable TypeScript errors without justification
+
+---
+
+## Current Focus
+
+<!-- What are you working on right now? Update this regularly. -->
+
+- [ ] Currently implementing: [feature name]
+- [ ] Blocked on: [external dependency, decision, etc.]
+- [ ] Recent decisions: [ADRs made this week]
+
+---
+
+## Notes for Claude
+
+<!-- Anything specific about how you want Claude to work with you -->
+
+- Prefer TypeScript strict mode; call out any `any` usage
+- Prefer server components in Next.js unless client interactivity is needed
+- When in doubt, ask before running destructive commands
+- Follow the security-auditor's recommendations without exception
+- Always update tests when changing behavior
+
+---
+
+## Related Documentation
+
+<!-- Links to external docs relevant to this project -->
+
+- Framework docs: [link]
+- Design system: [link]
+- Internal wiki: [link]
+- ADRs: `./docs/adr/`
